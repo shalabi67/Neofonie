@@ -15,6 +15,13 @@ public final class Numbers {
     private int end = 100;
 
     private Output output;
+    public Output getOutput() {
+        return output;
+    }
+
+    public void setOutput(Output output) {
+        this.output = output;
+    }
 
     protected Numbers() {
         //create console output.

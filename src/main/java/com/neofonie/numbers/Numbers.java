@@ -31,7 +31,7 @@ public final class Numbers {
     /**
      * creates Numbers object
      * @param args  two integer numbers string the first number should be less than the second number.
-     * if args is null or empty string then the strt will be 1 and end will be 100.
+     * if args is null or empty string then start will be 1 end will be 100.
      * @return Numbers object or null if invalid parameters passed. if null is passed or emp
      */
     public static Numbers create(String[] args) {

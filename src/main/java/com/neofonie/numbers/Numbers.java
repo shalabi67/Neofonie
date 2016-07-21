@@ -1,6 +1,8 @@
 package com.neofonie.numbers;
 
 import com.neofonie.application.Logger;
+import com.neofonie.com.neofonie.output.ConsoleOutput;
+import com.neofonie.com.neofonie.output.Output;
 
 /**
  * allows the user to write a set of numbers. the default start number is 1 while the default end number is 100
@@ -8,9 +10,16 @@ import com.neofonie.application.Logger;
  * @version v1
  * @see Number
  */
-public class Numbers {
+public final class Numbers {
     private int start = 1;
     private int end = 100;
+
+    private Output output;
+
+    protected Numbers() {
+        //create console output.
+        output = Output.create(null);
+    }
 
     /**
      * creates Numbers object
@@ -41,6 +50,13 @@ public class Numbers {
             return null;
         }
 
+        //init output.
+        String fileName = null;
+        if (args.length >= 3) {
+            fileName = args[2];
+        }
+        number.output = Output.create(fileName);
+
         Logger.LogMethodEnd(Numbers.class, Logger.getMethodName());
         return number;
     }
@@ -53,7 +69,7 @@ public class Numbers {
         Logger.LogMethodStart(Numbers.class, Logger.getMethodName());
 
         for(int i=start;i<=end;i++) {
-            System.out.println(Number.get(i));
+            output.write(Number.get(i));
         }
 
         Logger.LogMethodEnd(Numbers.class, Logger.getMethodName());

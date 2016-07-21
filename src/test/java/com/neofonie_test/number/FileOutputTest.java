@@ -27,7 +27,13 @@ public class FileOutputTest {
         String expected = output.data;
         Assert.assertTrue(actual !=expected);
 
-
+    }
+    @Test
+    public void testInvalidFilename() throws IOException {
+        String fileName = "?a.txt";
+        String[] args = {"1", "10", fileName};
+        NumbersAdapter numbersAdapter = NumbersAdapter.create(args);
+        Assert.assertTrue(numbersAdapter.numbers == null);
     }
     private String readFile(String fileName) throws IOException {
         String contents = new String(Files.readAllBytes(Paths.get(fileName)));

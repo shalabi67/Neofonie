@@ -9,7 +9,12 @@ public class Application {
     public static void main(String args[]) {
         Logger.LogMethodStart(Application.class, Logger.getMethodName());
 
-        Numbers.print();
+        Numbers numbers = Numbers.create(args);
+        if(numbers == null) {
+            System.out.println("Invalid arguments expecting two integer numbers separated by space. for example: 1  100");
+            return;
+        }
+        numbers.print();
 
         Logger.LogMethodEnd(Application.class, Logger.getMethodName());
     }

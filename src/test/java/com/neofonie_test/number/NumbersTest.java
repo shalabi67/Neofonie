@@ -1,6 +1,7 @@
 package com.neofonie_test.number;
 
 import com.neofonie.numbers.Number;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,7 +40,7 @@ public class NumbersTest {
         };
         for(String[] args : list) {
             NumbersAdapter numbersAdapter = NumbersAdapter.create(args);
-            numbersAdapter.print();
+            Assert.assertTrue(numbersAdapter.numbers == null);
         }
     }
 
@@ -53,7 +54,7 @@ public class NumbersTest {
         };
         for(String[] args : list) {
             NumbersAdapter numbersAdapter = NumbersAdapter.create(args);
-            numbersAdapter.print();
+            Assert.assertTrue(numbersAdapter.numbers == null);
         }
     }
 

@@ -17,10 +17,16 @@ public class Number {
      * For the multiples of five print "Buzz"
      * For numbers which are multiples of both three and five print "FizzBuzz"
      *
-     * @param number
+     * @param number can not be null. it can be any positive or negative value
      * @return  string of the number after applying rules.
      */
     public static String get(Integer number) {
+        if(number == null)
+            return null;
+
+        if(number == 0)
+            return "0";
+
         String result = number.toString();
         Logger.LogMethodStart(Number.class, Logger.getMethodName(), result);
 

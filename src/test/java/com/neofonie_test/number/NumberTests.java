@@ -11,29 +11,29 @@ import com.neofonie.numbers.Number;
  */
 public class NumberTests {
     static NumberAdapter numberAdapter = null;
-    static Integer maxTestNumber = Numbers.end;
+
     @Before
     public void testInit() {
         numberAdapter = new NumberAdapter();
     }
     @Test
     public void testFifteenMultiples() {
-        positiveNumberTests(15, Number.fizzBuzz);
+        numberTests(15, Number.fizzBuzz);
     }
 
     @Test
     public void testFifeMultiples() {
-        positiveNumberTests(5, Number.buzz);
+        numberTests(5, Number.buzz);
     }
 
     @Test
     public void testThreeMultiples() {
-        positiveNumberTests(3, Number.fizz);
+        numberTests(3, Number.fizz);
     }
 
     @Test
     public void testOtherNumbers() {
-        for(Integer i=Numbers.start;i<maxTestNumber;i++) {
+        for(Integer i=NumberAdapter.defaultStart;i<NumberAdapter.defaultEnd;i++) {
             if((i%15) == 0 || (i%5) == 0 || (i%3) == 0)
                 continue;
             String result = numberAdapter.get(i);
@@ -42,9 +42,18 @@ public class NumberTests {
         }
     }
 
+    @Test
+    public void testZeroNumbers() {
+        String result = numberAdapter.get(0);
+        Assert.assertTrue("Expected 0" + " Actual "+ result, result.equals("0"));
+    }
 
+    private void numberTests(Integer increment, String expectedResult) {
+        positiveNumberTests(increment, expectedResult);
+        negativeNumberTests(increment, expectedResult);
+    }
     private void positiveNumberTests(Integer increment, String expectedResult) {
-        for(Integer i=increment;i<maxTestNumber;i += increment) {
+        for(Integer i=increment;i<NumberAdapter.defaultEnd;i += increment) {
             if((i%15) == 0)
                 continue;
             String result = numberAdapter.get(i);
@@ -52,6 +61,13 @@ public class NumberTests {
         }
     }
 
-
+    private void negativeNumberTests(Integer increment, String expectedResult) {
+        for(Integer i=-increment;i>-NumberAdapter.defaultEnd;i -= increment) {
+            if((i%15) == 0)
+                continue;
+            String result = numberAdapter.get(i);
+            Assert.assertTrue("Expected " + expectedResult+ " Actual "+ result, result.equals(expectedResult));
+        }
+    }
 
 }

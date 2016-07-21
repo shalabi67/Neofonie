@@ -63,6 +63,8 @@ public final class Numbers {
                 fileName = args[2];
             }
             number.output = Output.create(fileName);
+            if(number.output == null)
+                return null;
 
             return number;
         }
@@ -79,8 +81,12 @@ public final class Numbers {
         Logger.LogMethodStart(Numbers.class, Logger.getMethodName());
 
         for(int i=start;i<=end;i++) {
-            output.write(Number.get(i));
+            if(!output.write(Number.get(i)+"\n")) {
+                //TODO: the write had failed, we need to check with PM to see what to do.
+                assert false;
+            }
         }
+        output.close();
 
         Logger.LogMethodEnd(Numbers.class, Logger.getMethodName());
     }

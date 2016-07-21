@@ -8,7 +8,8 @@ import com.neofonie.com.neofonie.output.Output;
 public final class StringOutput extends Output {
     String data = "";
     @Override
-    public void write(String data) {
+    public boolean write(String data) {
         this.data += data;
+        return true;
     }
 }

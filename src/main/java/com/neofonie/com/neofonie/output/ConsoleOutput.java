@@ -1,11 +1,13 @@
 package com.neofonie.com.neofonie.output;
 
 /**
- * Created by mohammad on 7/21/2016.
+ * write data to Console.
+ * @author mohammad
  */
 public final class  ConsoleOutput extends Output {
     @Override
-    public void write(String data) {
-        System.out.println(data);
+    public boolean write(String data) {
+        System.out.print(data);
+        return true;
     }
 }

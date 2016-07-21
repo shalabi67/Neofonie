@@ -1,5 +1,6 @@
 package com.neofonie_test.number;
 
+import com.neofonie.numbers.Numbers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +11,7 @@ import com.neofonie.numbers.Number;
  */
 public class NumberTests {
     static NumberAdapter numberAdapter = null;
-    static Integer maxTestNumber = 100;
+    static Integer maxTestNumber = Numbers.end;
     @Before
     public void testInit() {
         numberAdapter = new NumberAdapter();
@@ -32,7 +33,7 @@ public class NumberTests {
 
     @Test
     public void testOtherNumbers() {
-        for(Integer i=1;i<maxTestNumber;i++) {
+        for(Integer i=Numbers.start;i<maxTestNumber;i++) {
             if((i%15) == 0 || (i%5) == 0 || (i%3) == 0)
                 continue;
             String result = numberAdapter.get(i);

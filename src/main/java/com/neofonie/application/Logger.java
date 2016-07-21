@@ -4,7 +4,7 @@ import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 
 /**
- * Created by mshalabi on 3/10/2016.
+ * @author mohammad
  */
 public class Logger {
     protected java.util.logging.Logger logger = null;

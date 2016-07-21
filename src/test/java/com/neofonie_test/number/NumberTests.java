@@ -48,6 +48,12 @@ public class NumberTests {
         Assert.assertTrue("Expected 0" + " Actual "+ result, result.equals("0"));
     }
 
+    @Test
+    public void testNullNumber() {
+        String result = numberAdapter.get(null);
+        Assert.assertTrue("Expected null", result == null);
+    }
+
     private void numberTests(Integer increment, String expectedResult) {
         positiveNumberTests(increment, expectedResult);
         negativeNumberTests(increment, expectedResult);

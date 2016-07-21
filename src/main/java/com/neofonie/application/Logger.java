@@ -11,6 +11,8 @@ public class Logger {
 
     private static Logger loging = null;
 
+    public static boolean Debug = false;
+
     public static Logger create()
     {
         if(loging == null)
@@ -67,6 +69,28 @@ public class Logger {
     public static void LogInfo(String message)
     {
         Logger.create().logInfo(message);
+    }
+    private static void LogMethod(Class name, String message,  String status)
+    {
+        if(!Debug)
+            return;
+        Logger.create().logInfo(name.getName()  +  "::" +
+                        getMethodName()+ status + message);
+    }
+    private static String getMethodName() {
+        return Thread.currentThread().getStackTrace()[5].getMethodName();
+    }
+    public static void LogMethodStart(Class name, String message) {
+        LogMethod(name, message, " start ");
+    }
+    public static void LogMethodEnd(Class name, String message) {
+        LogMethod(name, message, " end ");
+    }
+    public static void LogMethodStart(Class name) {
+        LogMethodStart(name, "");
+    }
+    public static void LogMethodEnd(Class name) {
+        LogMethodEnd(name, "");
     }
 
 }

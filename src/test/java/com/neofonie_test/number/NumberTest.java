@@ -9,7 +9,7 @@ import com.neofonie.numbers.Number;
 /**
  * Created by mohammad on 7/21/2016.
  */
-public class NumberTests {
+public class NumberTest {
     static NumberAdapter numberAdapter = null;
 
     @Before

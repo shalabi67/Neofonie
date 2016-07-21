@@ -36,36 +36,39 @@ public final class Numbers {
      */
     public static Numbers create(String[] args) {
         Logger.LogMethodStart(Numbers.class, Logger.getMethodName());
-        if(args == null || args.length==0)
-            return new Numbers();
-        Numbers number = new Numbers();
         try {
-            if (args.length >= 1) {
-                number.start = Integer.parseInt(args[0]);
+            if (args == null || args.length == 0)
+                return new Numbers();
+            Numbers number = new Numbers();
+            try {
+                if (args.length >= 1) {
+                    number.start = Integer.parseInt(args[0]);
+                }
+                if (args.length >= 2) {
+                    number.end = Integer.parseInt(args[1]);
+                }
+            } catch (NumberFormatException e) {
+                Logger.LogException("Invalid parameters");
+                return null;
             }
-            if (args.length >= 2) {
-                number.end = Integer.parseInt(args[1]);
+
+            if (number.start > number.end) {
+                Logger.LogError("start " + number.start + " is greater than end " + number.end);
+                return null;
             }
-        }
-        catch(NumberFormatException e) {
-            Logger.LogException("Invalid parameters");
-            return null;
-        }
 
-        if(number.start>number.end) {
-            Logger.LogError("start " + number.start + " is greater than end " + number.end);
-            return null;
-        }
+            //init output.
+            String fileName = null;
+            if (args.length >= 3) {
+                fileName = args[2];
+            }
+            number.output = Output.create(fileName);
 
-        //init output.
-        String fileName = null;
-        if (args.length >= 3) {
-            fileName = args[2];
+            return number;
         }
-        number.output = Output.create(fileName);
-
-        Logger.LogMethodEnd(Numbers.class, Logger.getMethodName());
-        return number;
+        finally { //make sure end method log will be logged
+            Logger.LogMethodEnd(Numbers.class, Logger.getMethodName());
+        }
     }
 
     /**

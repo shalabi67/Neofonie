@@ -45,6 +45,21 @@ public class NumbersTest {
     }
 
     @Test
+    public void testOverflowArguments() {
+        Long bigNumber = Integer.MAX_VALUE + 1l;
+        String[][] list = {
+                {"999999999999999999999999", "1"},
+                {"1", "999999999999999999999999"},
+                {bigNumber.toString(), "1"},
+                {"1", bigNumber.toString()}
+        };
+        for(String[] args : list) {
+            NumbersAdapter numbersAdapter = NumbersAdapter.create(args);
+            Assert.assertTrue(numbersAdapter.numbers == null);
+        }
+    }
+
+    @Test
     public void testInvalidRangeArguments() {
         String[][] list = {
                 {"20", "1"}, //start is grater than end

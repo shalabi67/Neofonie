@@ -1,5 +1,6 @@
 package com.neofonie_test.number;
 
+import com.neofonie.application.Logger;
 import com.neofonie.numbers.Numbers;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 

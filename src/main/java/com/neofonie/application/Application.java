@@ -11,7 +11,8 @@ public class Application {
 
         Numbers numbers = Numbers.create(args);
         if(numbers == null) {
-            System.out.println("Invalid arguments expecting two integer numbers separated by space. for example: 1  100");
+            System.out.println("Invalid arguments expecting two integer numbers separated by space " +
+                    "and a valid file name. for example: 1  100 a.txt. if the error continue see system log.");
             return;
         }
         numbers.print();

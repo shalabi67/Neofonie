@@ -7,7 +7,6 @@ import com.neofonie.numbers.Numbers;
  */
 public class Application {
     public static void main(String args[]) {
-        Logger.enableMethodLogging(true);
         Logger.LogMethodStart(Application.class, Logger.getMethodName());
 
         Numbers.print();

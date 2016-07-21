@@ -16,12 +16,12 @@ public class Numbers {
      * @see Number
      */
     public static void print() {
-        Logger.LogMethodStart(Numbers.class);
+        Logger.LogMethodStart(Numbers.class, Logger.getMethodName());
 
         for(int i=start;i<=end;i++) {
             System.out.println(Number.get(i));
         }
 
-        Logger.LogMethodEnd(Numbers.class);
+        Logger.LogMethodEnd(Numbers.class, Logger.getMethodName());
     }
 }

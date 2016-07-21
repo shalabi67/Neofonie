@@ -22,7 +22,7 @@ public class Number {
      */
     public static String get(Integer number) {
         String result = number.toString();
-        Logger.LogMethodStart(Number.class, result);
+        Logger.LogMethodStart(Number.class, Logger.getMethodName(), result);
 
         //there is a possibility to use strategy pattern and composition pattern here.
         // if this code is going to be changed then this is a good practice to be done.
@@ -36,7 +36,7 @@ public class Number {
             result = fizz;
         }
 
-        Logger.LogMethodStart(Number.class, result);
+        Logger.LogMethodEnd(Number.class, Logger.getMethodName(), result);
         return result;
     }
 }

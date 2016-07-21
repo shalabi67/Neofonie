@@ -7,11 +7,11 @@ import com.neofonie.numbers.Numbers;
  */
 public class Application {
     public static void main(String args[]) {
-        Logger.Debug = false;
-        Logger.LogMethodStart(Application.class);
+        Logger.enableMethodLogging(true);
+        Logger.LogMethodStart(Application.class, Logger.getMethodName());
 
         Numbers.print();
 
-        Logger.LogMethodEnd(Application.class);
+        Logger.LogMethodEnd(Application.class, Logger.getMethodName());
     }
 }

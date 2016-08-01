@@ -1,0 +1,26 @@
+Backend Developer Coding Assessment
+
+Standard FizzBuzz Programming Test
+
+Requirements
+* Code to be written in Java and uploaded to GitHub or BitBucket (or somewhere accessible) - grant aaron.winn@neofonie.de access to the repo.
+* Needs to include main function so that we can run it from the command line
+* Make any other assumptions you want. Define any assumptions you make with documentation
+* provide instructions for use
+* please don’t copy stuff from Stack Overflow :)
+
+Version 1
+-------------------------------
+* Write a program that prints the numbers from 1 to 100.
+* For multiples of three print "Fizz" instead of the number
+* For the multiples of five print "Buzz"
+* For numbers which are multiples of both three and five print "FizzBuzz"
+
+Version 2
+-------------------------------
+* Same as version except
+   - the number range needs to be define by user input. ie the program asks the user for the start and end numbers and then prints the results between these two numbers
+
+Version 3
+-------------------------------
+* Same as version 1 and 2, except that now the program must store the results in file
